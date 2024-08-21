@@ -11,3 +11,7 @@ This tool is designed to extract UNet from **Stable Diffusion 1.5**, **SDXL**, a
 
 ### License
 This project is licensed under the [MIT License](LICENSE).
+
+
+### Acknowledgements
+- captainzero93
