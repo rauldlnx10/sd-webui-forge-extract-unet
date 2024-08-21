@@ -185,8 +185,7 @@ def gradio_process(input_file, model_type, use_cpu, verbose, num_threads):
 with gr.Blocks() as interface:
     with gr.Row():
         gr.Markdown(
-            "<h3 style='text-align: center; color: #4A90E2;'>UNet Extractor and Remover</h3>"
-            "<h3 style='text-align: center; color: #4A90E2;'>For Stable Diffusion 1.5, SDXL, and FLUX</h3>"
+            "<h3 style='text-align: center; color: #4A90E2;'>UNet Extractor and Remover for Stable Diffusion 1.5, SDXL, and FLUX</h3>"
         )
 
     with gr.Row():
