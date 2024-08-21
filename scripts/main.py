@@ -198,16 +198,22 @@ with gr.Blocks() as interface:
         )
 
     with gr.Row():
-        input_file = gr.Textbox(label="Input SafeTensors File Path", placeholder="Enter the file path")
-        model_type = gr.Radio(label="Model Type", choices=["sd15", "flux", "sdxl"], type="value")
-        use_cpu = gr.Checkbox(label="Use CPU", value=False)
-        verbose = gr.Checkbox(label="Verbose Logging", value=False)
-        num_threads = gr.Slider(label="Number of Threads", minimum=1, maximum=multiprocessing.cpu_count(), step=1, value=multiprocessing.cpu_count()-1)
-                    
+        model_type = gr.Dropdown(label="Model Type", choices=["sd15", "flux", "sdxl"], type="value", value="flux")
+    
     with gr.Row():
         with gr.Group():
-            output_text = gr.Textbox(label="Output", placeholder="Processing results will appear here...", visible=True)
-            process_btn = gr.Button("Process Model", variant="primary")
+            with gr.Row():
+                use_cpu = gr.Checkbox(label="Use CPU", value=False)
+                verbose = gr.Checkbox(label="Verbose Logging", value=False)
+                num_threads = gr.Slider(label="Number of Threads", minimum=1, maximum=multiprocessing.cpu_count(), step=1, value=multiprocessing.cpu_count()-1, scale=3)
+
+    with gr.Row():
+        with gr.Group():
+            with gr.Row():
+                input_file = gr.Textbox(show_label=False, placeholder="Input SafeTensors File Path", scale=3, visible=True)
+                output_text = gr.Textbox(show_label=False, placeholder="Processing results will appear here...", visible=True)
+                process_btn = gr.Button("Process Model", variant="primary")
+    
 
         def on_process_click(file_path, model, cpu, verbose, threads):
             return gradio_process(file_path, model, cpu, verbose, threads)
