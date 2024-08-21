@@ -198,12 +198,11 @@ with gr.Blocks() as interface:
         )
 
     with gr.Row():
-        with gr.Group():
-            input_file = gr.Textbox(label="Input SafeTensors File Path", placeholder="Enter the file path")
-            model_type = gr.Radio(label="Model Type", choices=["sd15", "flux", "sdxl"], type="value")
-            use_cpu = gr.Checkbox(label="Use CPU", value=False)
-            verbose = gr.Checkbox(label="Verbose Logging", value=False)
-            num_threads = gr.Slider(label="Number of Threads", minimum=1, maximum=multiprocessing.cpu_count(), step=1, value=multiprocessing.cpu_count()-1)
+        input_file = gr.Textbox(label="Input SafeTensors File Path", placeholder="Enter the file path")
+        model_type = gr.Radio(label="Model Type", choices=["sd15", "flux", "sdxl"], type="value")
+        use_cpu = gr.Checkbox(label="Use CPU", value=False)
+        verbose = gr.Checkbox(label="Verbose Logging", value=False)
+        num_threads = gr.Slider(label="Number of Threads", minimum=1, maximum=multiprocessing.cpu_count(), step=1, value=multiprocessing.cpu_count()-1)
                     
     with gr.Row():
         with gr.Group():
