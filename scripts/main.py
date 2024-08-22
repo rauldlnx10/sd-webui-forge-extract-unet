@@ -11,12 +11,6 @@ import os
 import modules.scripts as scripts
 from modules import script_callbacks
 
-try:
-    import torch
-    CUDA_AVAILABLE = torch.cuda.is_available()
-except ImportError:
-    CUDA_AVAILABLE = False
-
 class Script(scripts.Script):
     def __init__(self) -> None:
         super().__init__()
